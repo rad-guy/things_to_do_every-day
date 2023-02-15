@@ -4,7 +4,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
 
-TARGET = $$PWD../../../gui_test_code/gui_test_code
+TARGET = $$PWD../../../bin/gui_test_code
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
