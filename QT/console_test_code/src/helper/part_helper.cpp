@@ -11,6 +11,8 @@ void CPartHelper::excuteClass01()
     class01.testStrTranscode();
     class01.testAllPath();
     class01.testNoReturn();
+    std::string testString = class01.testFeferenceReturn();
+    qInfo() << "结论：返回局部变量的引用，程序崩溃";
 }
 
 void CPartHelper::excuteClass02()

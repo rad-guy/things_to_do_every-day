@@ -16,4 +16,6 @@ public:
     // 测试 忘记返回引起崩溃 linux系统。
     std::string testNoReturn();
 
+    // 测试 返回引用
+    const std::string& testFeferenceReturn();
 };

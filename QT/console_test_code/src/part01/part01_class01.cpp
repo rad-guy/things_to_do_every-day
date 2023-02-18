@@ -85,6 +85,15 @@ void CPart01Class01::testAllPath()
 
 std::string CPart01Class01::testNoReturn()
 {
-    std::string sss = "123";
-    qDebug() << sss.data();
+    std::string temp = "testNoReturnFunc";
+    qInfo() << temp.data();
+    qInfo() << "结论：函数声明有返回，实现无返回，编译通过，程序崩溃";
+    return temp;
+}
+
+const std::string &CPart01Class01::testFeferenceReturn()
+{
+//    return "[]";    // 返回局部变量的引用，程序崩溃
+    static std::string temp = "test";
+    return temp;
 }

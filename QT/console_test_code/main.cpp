@@ -6,6 +6,8 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    CPartHelper::excuteClass01();
+    CMainHelper helper;
+    helper.excutePart01();
+    helper.excuteUtils01();
     return a.exec();
 }

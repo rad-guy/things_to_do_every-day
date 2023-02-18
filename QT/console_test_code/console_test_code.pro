@@ -1,4 +1,4 @@
-QT += core
+QT += core network
 QT -= gui
 
 CONFIG += c++11 console
@@ -10,10 +10,15 @@ CONFIG -= app_bundle
 
 SOURCES += \
         main.cpp \
+        src/helper/main_helper.cpp \
         src/helper/module_helper.cpp \
         src/helper/part_helper.cpp \
+        src/helper/utils_helper.cpp \
         src/part01/part01_class01.cpp \
-        src/part01/part01_class02.cpp
+        src/part01/part01_class02.cpp \
+        src/utils/file_utils.cpp \
+        src/utils/string_utils.cpp \
+        src/utils/system_utils.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -24,8 +29,12 @@ HEADERS += \
     src/helper/main_helper.h \
     src/helper/module_helper.h \
     src/helper/part_helper.h \
+    src/helper/utils_helper.h \
     src/part01/part01_class01.h \
-    src/part01/part01_class02.h
+    src/part01/part01_class02.h \
+    src/utils/file_utils.h \
+    src/utils/string_utils.h \
+    src/utils/system_utils.h
 
 INCLUDEPATH += \
     $$PWD/src
