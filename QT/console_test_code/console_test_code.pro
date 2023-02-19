@@ -6,6 +6,8 @@ CONFIG -= app_bundle
 
 TARGET = $$PWD../../../bin/console_test_code
 
+QMAKE_CXXFLAGS += -Werror=return-type       # 无返回值
+QMAKE_CXXFLAGS += -Werror=return-local-addr # 返回局部变量地址
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
