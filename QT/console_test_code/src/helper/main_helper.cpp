@@ -9,9 +9,12 @@ void CMainHelper::excuteUtils01()
 {
     Utils::CSystemHelper systemHelper;
     systemHelper.testSystemUtils();
+    Utils::CFileHelper fileHelper;
+    fileHelper.testFileUtils();
 }
 
-void CMainHelper::excuteUtils02()
+void CMainHelper::excuteClasses01()
 {
-
+    CClassesHelper::testQCoreApplication();
+    CClassesHelper::testQSettings();
 }

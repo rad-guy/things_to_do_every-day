@@ -5,6 +5,8 @@
 #include <QDebug>
 #include <QTextCodec>
 #include <QCoreApplication>
+#include <QDir>
+#include <QDateTime>
 
 void CPart01Class01::testQStringList()
 {
@@ -96,4 +98,27 @@ const std::string &CPart01Class01::testFeferenceReturn()
 //    return "[]";    // 返回局部变量的引用，程序崩溃
     static std::string temp = "test";
     return temp;
+}
+
+void CPart01Class01::testDir()
+{
+    QFileInfoList drives = QDir::drives();
+    QString curPath = QDir::currentPath();
+    QString homePath = QDir::homePath();
+    QString rootPath = QDir::rootPath();
+    QString tempPath = QDir::tempPath();
+}
+
+void CPart01Class01::testQDateTime()
+{
+    QString curDate = QDate::currentDate().toString("yyyy-MM-dd");
+    qInfo() << curDate;
+    QString curTime = QTime::currentTime().toString("hhmmss");
+    qInfo() << curTime;
+}
+
+void CPart01Class01::testReadIniFile()
+{
+    QString iniPath = "test.ini";
+
 }

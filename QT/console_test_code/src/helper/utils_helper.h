@@ -17,7 +17,7 @@ public:
 class CFileHelper
 {
 public:
-
+    void testFileUtils();
 };
 
 class CSystemHelper

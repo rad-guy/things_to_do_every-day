@@ -18,4 +18,13 @@ public:
 
     // 测试 返回引用
     const std::string& testFeferenceReturn();
+
+    // 测试 磁盘获取
+    void testDir();
+
+    // 测试 时间获取
+    void testQDateTime();
+
+    // 测试 读取 ini 文件
+    void testReadIniFile();
 };

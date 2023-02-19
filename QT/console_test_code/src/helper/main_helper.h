@@ -6,13 +6,13 @@
 #include "helper/part_helper.h"
 #include "helper/module_helper.h"
 #include "helper/utils_helper.h"
-
+#include "helper/classes_helper.h"
 
 class CMainHelper
 {
 public:
     static void excutePart01();
     static void excuteUtils01();
-    static void excuteUtils02();
+    static void excuteClasses01();
 
 };
