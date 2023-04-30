@@ -1,5 +1,8 @@
 #pragma once
 
-#include "part_helper.h"
-#include "module_helper.h"
-
+class CMainHelper
+{
+public:
+	static void executePart();
+	static void executeModule();
+};

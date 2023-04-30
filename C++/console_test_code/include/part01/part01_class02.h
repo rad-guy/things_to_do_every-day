@@ -1,5 +1,6 @@
 #include <string>
 
+#include <vector>
 using namespace std;
 
 typedef struct tagSScreenPhysicsSize
@@ -41,8 +42,21 @@ public:
 	void				getScreenScreenPhysicsSize(SScreenPhysicsSize& master, SScreenPhysicsSize& slave);
 	void				getIntArrByteNum();
 
+	// 测试删除文件夹下所有文件
+	int					removeDirAllFile(const wstring& dir_path);
 
+	// 测试拷贝文件
+	int					CopyFolder(const wstring& src_path, const wstring& dest_path);
+	// 测试获取文件夹下所有文件
+	static void			GetDirAllFiles(const wstring& file_path, vector<wstring>& files, const wstring& ext = L"");
 
+	// 测试返回文件后缀
+	static wstring		getFileSuffix(const wstring& filepath);
+
+	// 测试 winapi MonitorFromWindow
+	static void			testMonitorFromWindow();
+	// 测试 LPCTSTR 赋值给 string  赋值崩溃
+	static void			testLPCSTR2String();
 
 private:
 	CPart01Class02Test		m_cTest01;

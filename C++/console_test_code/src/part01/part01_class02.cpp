@@ -3,6 +3,7 @@
 #include <Windows.h>
 #include <SetupApi.h>
 #include <atlstr.h>
+
 #pragma comment(lib, "setupapi.lib")
 int  CPart01Class02Test::m_iTestVariable = 0;
 CPart01Class02Test::CPart01Class02Test()
@@ -231,6 +232,143 @@ void CPart01Class02::getIntArrByteNum()
 {
 	int arr[111];
 	cout << "结论：int arr[111] 占用字节数 = " << (int)sizeof(arr) << endl;
+}
+
+int CPart01Class02::removeDirAllFile(const wstring& dir_path)
+{
+	wstring fileFound(dir_path);
+	WIN32_FIND_DATA info;
+	HANDLE hp;
+
+	fileFound.append(L"\\*.*");
+	hp = FindFirstFile(fileFound.data(), &info);
+
+	// Check first if we have a valid handle!
+	if (hp == INVALID_HANDLE_VALUE)
+	{
+		return 0;
+	}
+
+	do {
+		if (!((_tcscmp(info.cFileName, L".") == 0) ||
+			(_tcscmp(info.cFileName, L"..") == 0)))
+		{
+			if ((info.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == FILE_ATTRIBUTE_DIRECTORY)
+			{
+				wstring subFolder = dir_path;
+				subFolder.append(L"\\");
+				subFolder.append(info.cFileName);
+				if (removeDirAllFile(subFolder.data()) == -1)
+				{
+					cout << "Unable to delete subfolder" << endl;;
+				}
+			}
+			else
+			{
+				fileFound.assign(dir_path);
+				fileFound.append(L"\\");
+				fileFound.append(info.cFileName);
+				if (!DeleteFile(fileFound.data()))
+				{
+					cout << "" << endl;
+				}
+			}
+		}
+	} while (FindNextFile(hp, &info));
+
+	FindClose(hp);
+
+	if (!RemoveDirectory(dir_path.data()))
+	{
+		return -1;
+	}
+
+	return 0;
+}
+
+int CPart01Class02::CopyFolder(const wstring& src_path, const wstring& dest_path)
+{
+	int ret = 0;
+	vector<wstring> file;
+	GetDirAllFiles(src_path, file);
+
+	vector<wstring>::iterator it = file.begin();
+	for (; it != file.end(); it++)
+	{
+		if (wcsncmp((*it).data(), src_path.data(), src_path.length()) != 0)
+			continue;
+
+		wstring dest_file = dest_path + (*it).substr(src_path.length());
+		if (!::CopyFile((*it).data(), dest_file.data(),false))
+		{
+			return ret;
+		}
+	}
+	return ret;
+}
+
+void CPart01Class02::GetDirAllFiles(const wstring& file_path, vector<wstring>& files, const wstring& ext /*= L""*/)
+{
+	//文件句柄  
+	HANDLE   hFile = 0;
+	//文件信息  
+	WIN32_FIND_DATAW fileinfo;
+	wstring p;
+	if ((hFile = FindFirstFile(p.assign(file_path).append(L"\\*").c_str(), &fileinfo)) != INVALID_HANDLE_VALUE)
+	{
+		do
+		{
+			//如果是目录,迭代之  
+			//如果不是,加入列表  
+			if ((fileinfo.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == FILE_ATTRIBUTE_DIRECTORY)
+			{
+				if (_tcscmp(fileinfo.cFileName, L".") != 0 &&
+					_tcscmp(fileinfo.cFileName, L"..") != 0)
+					GetDirAllFiles(file_path + L"\\" + fileinfo.cFileName, files);
+			}
+			else if ((fileinfo.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) == 0)
+			{
+				wstring file = p.assign(file_path).append(L"/").append(fileinfo.cFileName); //by shaodeyang
+				if (!ext.empty() && getFileSuffix(file) == ext)
+					continue;
+
+				files.push_back(file);
+			}
+		} while (FindNextFile(hFile, &fileinfo) == TRUE);
+
+		FindClose(hFile);
+	}
+	int test = GetLastError();
+}
+
+wstring CPart01Class02::getFileSuffix(const wstring& filepath)
+{
+	const TCHAR* ext = _tcsrchr(filepath.c_str(), '.');
+	if (ext == NULL)
+		return L"";
+
+	wstring name = wstring(ext);
+	int index = name.find(L"/\\");
+	if (index >= 0) return L"";
+
+	return name;
+}
+
+void CPart01Class02::testMonitorFromWindow()
+{
+	HMONITOR hMon = ::MonitorFromWindow(NULL, MONITOR_DEFAULTTONEAREST);
+
+	MONITORINFO oMonitor = {};
+	oMonitor.cbSize = sizeof(oMonitor);
+	::GetMonitorInfo(hMon, &oMonitor);
+
+}
+
+void CPart01Class02::testLPCSTR2String()
+{
+	LPCSTR str = NULL;
+	//string testStr = (char*)str;
+	cout << "测试 NULL 转 char*，结论：崩溃" << endl;
 }
 
 void CPart01Class02::prove01()

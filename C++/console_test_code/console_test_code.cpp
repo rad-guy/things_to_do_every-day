@@ -5,8 +5,8 @@
 int main()
 {
     std::cout << "Hello World!\n";
-    CPartHelper::excuteClass01();
-    CPartHelper::excuteClass02();
 
+    CMainHelper::executePart();
+    CMainHelper::executeModule();
     system("pause");
 }
