@@ -1,5 +1,9 @@
-#include "multi_cast.h"
-#include "../multi_module_dll/src/include/base_socket.h"
+#include "manager/app_operator.h"
+#include <string>
+#include <iostream>
+#include "jsoncpp/include/json/json.h"
+
+using namespace std;
 
 int main()
 {
@@ -12,22 +16,31 @@ int main()
 	////server.setMultiCast();
 	//server.start();
 
-	// 聊天室demo
-	if (!DT_Start_WinSocket_Dll())
-	{
-		printf("初始化失败.");
-		return 0;
-	}
+	CAppInstance::startApp();
 
-	IChatSocketServer* chatServer = DT_CreateChatSocketServer();
-	if (chatServer)
-	{
-		chatServer->setLocalProt(12248);
-		chatServer->init();
-		chatServer->start();
-	}
+	
+	//string jsontxt = "{\"key\":\"a\",\"value\":[{\"name\":\"jane\",\"age\":16},{\"name\":\"molia\",\"age\":18}],\"ret\":0}";
+	////jsontxt = "{\"key\":\"a\"}";
+	//std::string strValue = "{ \"key\":\"value1\",\"array\": [{\"arraykey\":1},{\"arraykey\":2}]}"; 
+	//Json::Reader reader;
+	//Json::Value root;
+	//// reader将Json字符串解析到root，root将包含Json里所有子元素
+	//if (reader.parse(strValue, root))
+	//{
+	//	if (!root["key"].isNull())
+	//	{
+	//		std::string strValue = root["key"].asString();
+	//		std::cout << strValue << std::endl;
+	//	}
+	//	Json::Value arrayObj = root["array"];
+	//	for (int i = 0; i < arrayObj.size(); i++)
+	//	{
+	//		int iarrayValue = arrayObj[i]["arraykey"].asInt();
+	//		std::cout << iarrayValue << std::endl;
+	//	}
+	//}
+	CAppInstance::executeChatDemo();
 
-
-	DT_Clean_WinSocket_Dll();
+	CAppInstance::stopApp();
 	return 0;
 }

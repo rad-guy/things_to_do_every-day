@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="lib">
+      <UniqueIdentifier>{d1fccf44-089a-419d-8eea-3c4805b7a774}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\module">
+      <UniqueIdentifier>{5473b3c3-ea8f-4123-9422-869b94365e24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\module\text">
+      <UniqueIdentifier>{ec478f29-73cc-4ad7-8075-25bb06b095c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\module\file">
+      <UniqueIdentifier>{cccd5699-b366-4686-9577-8670cd813b43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\include">
+      <UniqueIdentifier>{a9117cbb-8076-4f5f-a2c5-99ff581582d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\module\system">
+      <UniqueIdentifier>{a2e83ce4-92ac-4f10-9874-4364a1d5b0a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\module\stay">
+      <UniqueIdentifier>{6d7ef0f0-31c3-4beb-abca-54e96ed648d7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\include\file_utils.h">
+      <Filter>lib\include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\string_utils.h">
+      <Filter>lib\include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\stay.h">
+      <Filter>lib\include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\file\file_utils.cpp">
+      <Filter>lib\module\file</Filter>
+    </ClCompile>
+    <ClCompile Include="src\text\string_utils.cpp">
+      <Filter>lib\module\text</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stay\stay.cpp">
+      <Filter>lib\module\stay</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

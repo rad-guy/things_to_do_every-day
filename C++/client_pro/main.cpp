@@ -1,6 +1,5 @@
-#include "multi_cast.h"
-#include "../multi_module_dll/src/include/base_socket.h"
-
+//#include "multi_cast.h"
+#include "multi_module_dll/include/base_socket.h"
 int main()
 {
 	//CMultiCastServer server;

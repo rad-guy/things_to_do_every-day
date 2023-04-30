@@ -5,26 +5,44 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="头文件">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="资源文件">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="module">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="module\socket_pro">
+      <UniqueIdentifier>{a8beddb1-1bac-4733-a51a-a8eb324711b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="module\manager">
+      <UniqueIdentifier>{bd316b28-eb0f-4f39-99f9-8a7b02236d9c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\h\multi_cast.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="src\module\socket_pro\multi_cast.h">
+      <Filter>module\socket_pro</Filter>
+    </ClInclude>
+    <ClInclude Include="src\manager\app_operator.h">
+      <Filter>module\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="src\module\socket_pro\socket_chat_room.h">
+      <Filter>module\socket_pro</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\cpp\multi_cast.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\module\socket_pro\multi_cast.cpp">
+      <Filter>module\socket_pro</Filter>
+    </ClCompile>
+    <ClCompile Include="src\manager\app_operator.cpp">
+      <Filter>module\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="src\module\socket_pro\socket_chat_room.cpp">
+      <Filter>module\socket_pro</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
