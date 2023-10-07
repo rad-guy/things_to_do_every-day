@@ -46,6 +46,7 @@ public:
 	virtual void init() = 0;
 	virtual void close() = 0;
 	virtual void start() = 0;
+	virtual void startChat() = 0;
 };
 
 

@@ -21,6 +21,7 @@ int main()
 		chatClient->setLocalProt(12241);
 		chatClient->init();
 		chatClient->start();
+		chatClient->startChat();
 	}
 
 

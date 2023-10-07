@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "base_socket.h"
 #include "chat_socket_server.h"
-
+#include "common_utils/include/string_utils.h"
 
 bool DT_Start_WinSocket_Dll()
 {
@@ -92,7 +92,7 @@ void CChatSocketServer::init()
 	m_addrSer.sin_addr.s_addr = inet_addr(CHAT_SERVER_SOCKET_IP);
 	m_addrSer.sin_family = AF_INET;
 	m_addrSer.sin_port = htons(CHAT_SERVER_SOCKET_PROT);
-
+	printf("当前端口号 =====  %d\n", CHAT_SERVER_SOCKET_PROT);
 	int ret = bind(m_hSocketSer, (sockaddr*)&m_addrSer, sizeof(m_addrSer));
 	if (ret == SOCKET_ERROR)
 	{
@@ -129,8 +129,6 @@ void CChatSocketServer::start()
 		if (hSocketClient != INVALID_SOCKET)
 		{
 			onConnectSuccess(hSocketClient, addr);
-			string sendData = "{\"sortid\":\"connect\",\"result\":\"sucess\"}";
-			
 		}
 	}
 
@@ -138,23 +136,29 @@ void CChatSocketServer::start()
 
 void CChatSocketServer::massMsg(const string& msg)
 {
+	printf("服务端群发消息:  msg = %s\n", msg.data());
 	for (auto item : m_vecClient)
 	{
 		sendMsgToClient(item,msg);
 	}
 }
 
-int CChatSocketServer::onConnectSuccess(const SOCKET& socket , const sockaddr_in& addr)
+void CChatSocketServer::onConnectSuccess(const SOCKET& socket , const sockaddr_in& addr)
 {
 	SChatClientInfo* clientInfo = new SChatClientInfo();
 	// net_ntoa 函数将 (Ipv4) Internet 网络地址转换为 Internet 标准点分十进制格式的ASCII 字符串
 	clientInfo->ip = inet_ntoa(addr.sin_addr);
+	clientInfo->id = CStringUtils::getGuidString();
 	clientInfo->port = ntohs(addr.sin_port);
 	clientInfo->socket = socket;
-	m_vecClient.push_back(clientInfo);
+	registerClient(clientInfo);
+	string massData = clientInfo->ip + ":" + to_string(clientInfo->port) + " 已连接";
+	massMsg(massData);
+	string msg = "{\"sortid\":\"connect\",\"result\":\"sucess\"}";
+	sendMsgToClient(clientInfo, msg);
 }
 
-void CChatSocketServer::sendMsgToClient(int id, const string& msg)
+void CChatSocketServer::sendMsgToClient(const string& id, const string& msg)
 {
 	SChatClientInfo* client = getClientInfo(id);
 	sendMsgToClient(client, msg);
@@ -166,7 +170,17 @@ void CChatSocketServer::sendMsgToClient(SChatClientInfo* client, const string& m
 
 	char sendBuf[SOCKET_BUF_SIZE];
 	memset(sendBuf, 0, sizeof(sendBuf));
-	send(client->socket, sendBuf, sizeof(sendBuf), 0);
+
+
+	int ret = send(client->socket, msg.data(), sizeof(msg), 0);
+	if (ret > 0)
+	{
+		printf("发送消息 suc : id = %s, msg = %s\n", client->id.data(), msg.data());
+	}
+	else
+	{
+		printf("发送消息 fail : id = %s, msg = %s\n", client->id.data(), msg.data());
+	}
 }
 
 void CChatSocketServer::startMsgPolling()
@@ -177,6 +191,7 @@ void CChatSocketServer::startMsgPolling()
 		int ret = recv(item->socket, recvBuf, sizeof(recvBuf), 0);
 		if (ret > 0)
 		{
+			printf("服务端接收消息:  msg = %s\n", recvBuf);
 			if (m_pChatSink) m_pChatSink->onReceiveMsg();
 		}
 	}
@@ -202,7 +217,7 @@ void CChatSocketServer::unregisterClient(SChatClientInfo* client)
 	}
 }
 
-SChatClientInfo* CChatSocketServer::getClientInfo(int id)
+SChatClientInfo* CChatSocketServer::getClientInfo(const string& id)
 {
 	for (auto item : m_vecClient)
 	{

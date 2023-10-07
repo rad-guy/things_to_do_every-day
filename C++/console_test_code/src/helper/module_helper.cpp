@@ -6,10 +6,19 @@
 
 void CModuleHelper::executSTL()
 {
-}
+	STL01_Class01 class01;
+	class01.testVectorChar();
+};
 
 void CModuleHelper::executeMultiCast()
 {
+	//return;
 	//CMultiCast multiCast;
 	//multiCast.testBroadCast();
 }
+void CModuleHelper::test()
+{
+	int i = 0;
+	i += 1;
+}
+;

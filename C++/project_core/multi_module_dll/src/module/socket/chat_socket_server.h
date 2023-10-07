@@ -3,7 +3,7 @@
 
 typedef struct tagSChatClientInfo
 {
-	int	   id;
+	string id;
 	SOCKET socket;
 	string ip;
 	int    port;
@@ -35,15 +35,15 @@ public:
 	virtual void start();
 
 	void massMsg(const string& msg);
-	int  onConnectSuccess(const SOCKET& socket, const sockaddr_in& addr);
+	void onConnectSuccess(const SOCKET& socket, const sockaddr_in& addr);
 
-	void sendMsgToClient(int id, const string& msg);
+	void sendMsgToClient(const string& id, const string& msg);
 	void sendMsgToClient(SChatClientInfo* client,const string& msg);
 
 	void startMsgPolling();
 	void registerClient(SChatClientInfo* client);
 	void unregisterClient(SChatClientInfo* client);
-	SChatClientInfo* getClientInfo(int id);
+	SChatClientInfo* getClientInfo(const string& id);
 private:
 	SOCKET m_hSocketSer;				// socket ·þÎñ
 	VecClientGroup m_vecClient;
