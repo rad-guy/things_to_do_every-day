@@ -20,6 +20,12 @@ public:
     static qint64   getDiskFreeSpaceSize(const QString& destPath);
 
 
+    static int      copyFolder(const QString & srcPath, const QString & destPath);
+    static int      renameFolder(const QString & srcPath, const QString & destPath);
+    static int      moveFolder(const QString & srcPath, const QString & destPath);
 
+    static bool     copyFile(const QString & srcPath, const QString & destPath);
+    static bool     renameFile(const QString & srcPath, const QString & destPath);
+    static bool     moveFile(const QString & srcPath, const QString & destPath);
 
 };

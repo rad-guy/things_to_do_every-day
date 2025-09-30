@@ -8,6 +8,7 @@ void CModuleHelper::executSTL()
 {
 	STL01_Class01 class01;
 	class01.testVectorChar();
+	class01.testMap();
 };
 
 void CModuleHelper::executeMultiCast()

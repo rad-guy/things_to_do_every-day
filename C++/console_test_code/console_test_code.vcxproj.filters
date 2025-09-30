@@ -49,6 +49,18 @@
     <Filter Include="src\study01">
       <UniqueIdentifier>{33d27d3a-2525-484d-9b64-b48296d9f993}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\tools">
+      <UniqueIdentifier>{849afcc4-038b-4cd8-bd52-ffb86aeeb6e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\tools">
+      <UniqueIdentifier>{292bee83-5db5-491b-8fe1-061c0593fb16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\test">
+      <UniqueIdentifier>{7772c520-ffd8-45c2-a86f-40f103097a24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\test">
+      <UniqueIdentifier>{43150aa3-df54-482f-ba5e-7af184791183}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="console_test_code.cpp">
@@ -93,6 +105,24 @@
     <ClCompile Include="src\study01\study01_class03.cpp">
       <Filter>src\study01</Filter>
     </ClCompile>
+    <ClCompile Include="src\part01\part01_class05.cpp">
+      <Filter>src\part01</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tools\Rijndael.cpp">
+      <Filter>src\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tools\base64.cpp">
+      <Filter>src\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tools\CStringUtils.cpp">
+      <Filter>src\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="src\part01\part01_class06.cpp">
+      <Filter>src\part01</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\test-memory.cpp">
+      <Filter>src\test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\helper\part_helper.h">
@@ -133,6 +163,24 @@
     </ClInclude>
     <ClInclude Include="include\study01\study01_class03.h">
       <Filter>include\study01</Filter>
+    </ClInclude>
+    <ClInclude Include="include\part01\part01_class05.h">
+      <Filter>include\part01</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tools\Rijndael.h">
+      <Filter>include\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tools\base64.h">
+      <Filter>include\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tools\CStringUtils.h">
+      <Filter>include\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="include\part01\part01_class06.h">
+      <Filter>include\part01</Filter>
+    </ClInclude>
+    <ClInclude Include="include\test\test-memory.h">
+      <Filter>include\test</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

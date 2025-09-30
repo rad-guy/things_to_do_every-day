@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <iostream>
+#include <map>
 
 void STL01_Class01::testVectorChar()
 {
@@ -13,5 +14,21 @@ void STL01_Class01::testVectorChar()
 	{
 		cout << rxbuf[i] << endl;
 	}
+
+}
+
+void STL01_Class01::testMap()
+{
+	vector<int> temp;
+	std::map<string, vector<int>> mm;
+	mm.insert(make_pair("1", temp));
+	auto& itmm = mm.at("1");
+	itmm.push_back(1);
+	for (auto& it : itmm)
+	{
+		cout << it << endl;
+	}
+
+
 
 }

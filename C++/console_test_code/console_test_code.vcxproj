@@ -31,13 +31,15 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>false</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -153,11 +155,17 @@
     <ClCompile Include="src\part01\part01_class02.cpp" />
     <ClCompile Include="src\part01\part01_class03.cpp" />
     <ClCompile Include="src\part01\part01_class04.cpp" />
+    <ClCompile Include="src\part01\part01_class05.cpp" />
+    <ClCompile Include="src\part01\part01_class06.cpp" />
     <ClCompile Include="src\study01\study01_class01.cpp" />
     <ClCompile Include="src\study01\study01_class02.cpp" />
     <ClCompile Include="src\study01\study01_class03.cpp" />
+    <ClCompile Include="src\test\test-memory.cpp" />
     <ClCompile Include="src\test_module\socket\multi_cast.cpp" />
     <ClCompile Include="src\test_module\stl\stl01_class01.cpp" />
+    <ClCompile Include="src\tools\base64.cpp" />
+    <ClCompile Include="src\tools\CStringUtils.cpp" />
+    <ClCompile Include="src\tools\Rijndael.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\helper\main_helper.h" />
@@ -168,11 +176,17 @@
     <ClInclude Include="include\part01\part01_class02.h" />
     <ClInclude Include="include\part01\part01_class03.h" />
     <ClInclude Include="include\part01\part01_class04.h" />
+    <ClInclude Include="include\part01\part01_class05.h" />
+    <ClInclude Include="include\part01\part01_class06.h" />
     <ClInclude Include="include\study01\study01_class01.h" />
     <ClInclude Include="include\study01\study01_class02.h" />
     <ClInclude Include="include\study01\study01_class03.h" />
+    <ClInclude Include="include\test\test-memory.h" />
     <ClInclude Include="include\test_module\socket\multi_cast.h" />
     <ClInclude Include="include\test_module\stl\stl01_class01.h" />
+    <ClInclude Include="include\tools\base64.h" />
+    <ClInclude Include="include\tools\CStringUtils.h" />
+    <ClInclude Include="include\tools\Rijndael.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

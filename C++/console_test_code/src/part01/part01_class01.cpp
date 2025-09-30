@@ -1,5 +1,5 @@
 #include "part01/part01_class01.h"
-
+#pragma comment(lib, "Gdi32.lib")
 #define min(a,b)            (((a) < (b)) ? (a) : (b))
 
 ImgInfo CPart01Class01::copyBitmap(ImgInfo src, ImgInfo dest, int x,int y,int cx,int cy,int destX,int destY)

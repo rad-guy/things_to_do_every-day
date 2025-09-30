@@ -4,7 +4,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
 
-TARGET = $$PWD../../../bin/gui_test_code
+TARGET = gui_test_code
+
+DESTDIR = $$PWD/../../../bin
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -15,15 +17,21 @@ INCLUDEPATH += \
 
 SOURCES += \
     main.cpp \
+    src/control/control01_widget01.cpp \
+    src/helper/control_helper.cpp \
+    src/helper/main_helper.cpp \
     src/helper/part_helper.cpp \
     src/part01/part01_widget01.cpp
 
 HEADERS += \
+    src/control/control01_widget01.h \
+    src/helper/control_helper.h \
     src/helper/main_helper.h \
     src/helper/part_helper.h \
     src/part01/part01_widget01.h
 
 FORMS += \
+    resources/ui/control01_widget01.ui \
     resources/ui/part01_widget01.ui
 
 # Default rules for deployment.

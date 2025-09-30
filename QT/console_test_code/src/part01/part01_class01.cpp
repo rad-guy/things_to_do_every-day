@@ -122,3 +122,31 @@ void CPart01Class01::testReadIniFile()
     QString iniPath = "test.ini";
 
 }
+
+void CPart01Class01::testDirExist()
+{
+    QString path = "";
+    QDir dir(path);
+    bool isDirExists = dir.exists();
+    qInfo() << "结论, QDir 传入 空路径，exists 返回 true";
+
+    QFile file(path);
+    bool isFileExists = file.exists();
+    qInfo() << "结论, QFile 传入 空路径，exists 返回 false";
+}
+
+void CPart01Class01::testRemoveDir()
+{
+    QString file_path = "";
+    if (file_path.isEmpty())
+        return;
+    QDir temp = QDir(file_path);
+
+    if (temp.exists())
+    {
+
+        QString dirPath = temp.path();
+        temp.removeRecursively();
+    }
+    qInfo() << "111";
+}

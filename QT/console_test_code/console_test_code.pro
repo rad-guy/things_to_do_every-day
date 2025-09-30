@@ -4,7 +4,9 @@ QT -= gui
 CONFIG += c++11 console
 CONFIG -= app_bundle
 
-TARGET = $$PWD../../../bin/console_test_code
+TARGET = console_test_code
+
+DESTDIR = $$PWD/../../../bin
 
 QMAKE_CXXFLAGS += -Werror=return-type       # 无返回值
 QMAKE_CXXFLAGS += -Werror=return-local-addr # 返回局部变量地址

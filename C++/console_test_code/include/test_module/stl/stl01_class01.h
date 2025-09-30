@@ -9,4 +9,7 @@ public:
 
 
 	void testVectorChar();
+
+	// ≤‚ ‘map
+	void testMap();
 };

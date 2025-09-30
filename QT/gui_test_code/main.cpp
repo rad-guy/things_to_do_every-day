@@ -6,8 +6,9 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
+    CMainHleper::testControlHelper();
+    CMainHleper::testPartHelper();
 
 
-    CPartHelper::excuteWidget01();
     return a.exec();
 }

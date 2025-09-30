@@ -9,7 +9,8 @@ void CSystemHelper::testSystemUtils()
     // 测试获取 本机 ip
     QString ipAddress = CSystemUtils::getLocalIp();
     qInfo() << "get ip = " << ipAddress;
-
+    // 测试获取 网络信息
+    CSystemUtils::testNetInfo();
     //
 }
 

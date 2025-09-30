@@ -27,4 +27,10 @@ public:
 
     // 测试 读取 ini 文件
     void testReadIniFile();
+
+    // 测试 Dir
+    void testDirExist();
+
+    // 测试删除 文件夹
+    void testRemoveDir();
 };

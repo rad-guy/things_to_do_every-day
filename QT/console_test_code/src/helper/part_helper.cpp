@@ -16,6 +16,8 @@ void CPartHelper::excuteClass01()
     qInfo() << "结论：返回局部变量的引用，程序崩溃";
     class01.testDir();
     class01.testQDateTime();
+    class01.testDirExist();
+    class01.testRemoveDir();
 }
 
 void CPartHelper::excuteClass02()

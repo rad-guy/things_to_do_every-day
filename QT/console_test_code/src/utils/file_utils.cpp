@@ -84,6 +84,69 @@ qint64 CFileUtils::getDiskFreeSpaceSize(const QString &destPath)
         freeSpaceSize = availableDisk;
     #endif
 
-    return freeSpaceSize / mb;
+        return freeSpaceSize / mb;
+}
+
+int CFileUtils::copyFolder(const QString &srcPath, const QString &destPath)
+{
+    int ret = 0;
+//    QVector<QString> files;
+//    getDirFilesPath(QString::fromStdWString(srcPath),files,"",true);
+
+//    for (auto item : files)
+//    {
+//        QString path = item.toStdWString();
+//        if (wcsncmp(path.data(), srcPath.data(), srcPath.length()) != 0)
+//            continue;
+
+//        QString dest_file = destPath + path.substr(srcPath.length());
+//        if (!CFileUtils::CopyFile(path, dest_file))
+//        {
+//            qInfo() << "CopyFolder, srcPath: " << CTextConverter::wStringToString(srcPath)
+//                << ", destPath: " << CTextConverter::wStringToString(destPath);
+//            return ret;
+//        }
+//    }
+    return ret;
+}
+
+int CFileUtils::renameFolder(const QString &srcPath, const QString &destPath)
+{
+    return 0;
+}
+
+int CFileUtils::moveFolder(const QString &srcPath, const QString &destPath)
+{
+    return 0;
+}
+
+bool CFileUtils::copyFile(const QString &srcPath, const QString &destPath)
+{
+//    if (!CFileUtils::IsFile(srcPath))
+//        return false;
+
+//    CFileUtils::mkdirIfFilePathNotExists(destPath.c_str());
+
+//    QFile::copy(QString::fromStdWString(srcPath), QString::fromStdWString(destPath));
+    return false;
+}
+
+bool CFileUtils::renameFile(const QString &srcPath, const QString &destPath)
+{
+//    if (!CFileUtils::IsFile(srcPath))
+//        return false;
+
+//    if (CFileUtils::IsFile(destPath))
+//        CFileUtils::unlinkFile(destPath);
+//    else
+//        CFileUtils::mkdirIfFilePathNotExists(destPath);
+
+//    return QFile::rename(QString::fromStdWString(srcPath), QString::fromStdWString(destPath));
+    return false;
+}
+
+bool CFileUtils::moveFile(const QString &srcPath, const QString &destPath)
+{
+    return false;
 }
 

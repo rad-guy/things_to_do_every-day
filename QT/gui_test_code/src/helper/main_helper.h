@@ -4,3 +4,13 @@
 
 
 #include "helper/part_helper.h"
+#include "helper/control_helper.h"
+
+
+
+class CMainHleper
+{
+public:
+    static void testControlHelper();
+    static void testPartHelper();
+};

@@ -11,6 +11,7 @@ CPart01Widget01::CPart01Widget01(QWidget *parent)
     , m_pTestTimer(nullptr)
 {
     ui->setupUi(this);
+    setAttribute(Qt::WA_DeleteOnClose);
 }
 
 CPart01Widget01::~CPart01Widget01()
