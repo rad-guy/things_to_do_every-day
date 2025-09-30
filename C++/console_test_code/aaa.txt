@@ -1,0 +1,6 @@
+文件名,大小,路径
+castview.png,1976,E:\Project\code\interact\build\Debug\skin\airplay\image\castview.png
+文件名,大小,路径
+localview_hot.png,1993,E:\Project\code\interact\build\Debug\skin\airplay\image\localview_hot.png
+文件名,大小,路径
+app_bookshelf.png,8066,E:\Project\code\interact\build\Debug\skin\c30_desktop\desktop\images\app_bookshelf.png
